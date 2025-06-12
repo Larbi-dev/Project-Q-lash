@@ -1,0 +1,231 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.secBody {
+  display: flex;
+  min-height: 100vh;
+}
+
+.box_1 {
+  flex: 1;
+  background-color: rgb(61, 15, 90);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.box_2 {
+  flex: 1;
+  background-color: #1A0524;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+   
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 400px;
+  background: #222; 
+  padding: 2rem;
+  border-radius: 10px; 
+  position: relative;
+  z-index: 0;
+  color: white; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.formContainer:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 12px; 
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.formContainer:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #380d4b;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+
+.formContainer label {
+  color: white;
+}
+
+.formContainer input[type="email"],
+.formContainer input[type="password"] {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid #444;
+}
+
+.formContainer input:focus {
+  border-color: #7a00ff; 
+  box-shadow: 0 0 5px rgba(122, 0, 255, 0.5);
+}
+
+
+.formContainer button[type="submit"] {
+  background: #7a00ff; 
+  color: white;
+}
+
+.formContainer button[type="submit"]:hover {
+  background: #8a2be2; 
+}
+
+
+.inputContainer {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.inputContainer label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: white; 
+  font-weight: 500;
+}
+
+
+.inputContainer input[type="email"],
+.inputContainer input[type="password"] {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1rem;
+  background-color: white; 
+  border: 2px solid #e0e0e0;
+  border-radius: 25px; 
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  height: 45px; 
+}
+
+.inputContainer input[type="email"]:focus,
+.inputContainer input[type="password"]:focus {
+  border-color: #010101; 
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(181, 126, 220, 0.3);
+}
+
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.checkboxContainer {
+  margin-right: 10px;
+}
+
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background-color: #fefdff; 
+  color: #620cae;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  
+}
+
+button[type="submit"]:hover {
+  background-color: #E6D4FF; 
+}
+
+
+.signUpText {
+  color: white;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.signUpText a {
+  color: #e0c4ff; 
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signUpText a:hover {
+  text-decoration: underline;
+}
+
+
+.quoteContainer {
+  max-width: 500px;
+}
+
+.realQuote {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #ffffff;
+  font-weight: 600;
+  
+}
+
+.author {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: right;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+
+.box_2 h1 {
+  color: #ffffff; 
+  margin-bottom: 5rem;
+  text-align: center;
+}
