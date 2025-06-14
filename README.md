@@ -65,5 +65,4 @@ Socket.io (real-time updates)
 Backend Node.js + Express (or Django/Flask if preferred)
 Database MongoDB / Firebase / PostgreSQL
 Quiz Data
-JSON/DB (you can start with hardcoded
-questions)
+JSON/DB 
