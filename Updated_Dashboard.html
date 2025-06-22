@@ -7,7 +7,11 @@
   <link rel="stylesheet" href="Dashboard.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
+    
+
     <body>
 
         <div class="dashboard">
@@ -16,14 +20,15 @@
                 <div class="branding">Q-Lash</div>
                 <nav class="main-nav">
                    <ul>
-                        <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                        <li><a href="room.html"><i class="fas fa-home"></i> Room</a></li>
+                        <li><a href="Dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                        <li><a href="#" id="game-lobby-link"><i class="fas fa-home"></i> Game Lobby</a></li>
                         <li><a href="achievements.html"><i class="fas fa-trophy"></i> Achievements</a></li>
                         <li><a href="leaderboard.html"><i class="fas fa-chart-bar"></i> Leader Board</a></li>
                         <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
                         <li><a href="help.html"><i class="fas fa-question-circle"></i> Help</a></li>
                         <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
+
 
                 </nav>
 
@@ -55,14 +60,14 @@
                             <div class="subject-icon">
                                 <img src="Subjects/maths.png" alt="Math Subject">
                             </div>
-                            <div class="subject-name">Science</div>
+                            <div class="subject-name">Maths</div>
                         </div>
 
                         <div class="subject">
                             <div class="subject-icon">
                                 <img src="Subjects/science.png" alt="Science Subject">
                             </div>
-                            <div class="subject-name">Sports</div>
+                            <div class="subject-name">Science</div>
                         </div>
 
                         <div class="subject">
@@ -95,7 +100,7 @@
 
                         <div class="subject">
                             <div class="subject-icon">
-                                <img src="Subjects/religion.png" alt="Technology Subject">
+                                <img src="Subjects/religion.png" alt="Religion Subject">
                             </div>
                             <div class="subject-name">Religion</div>
                         </div>
@@ -242,6 +247,54 @@
 
             
         </div>
+
+        <script>
+        document.getElementById('game-lobby-link').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        Swal.fire({
+            title: 'Game Lobby',
+            text: 'What would you like to do?',
+            showCancelButton: true,
+            showDenyButton: true,
+            confirmButtonText: 'Join Room',
+            denyButtonText: 'Create Room',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+            // For the Join Room
+            Swal.fire({
+                title: 'Enter Room ID',
+                input: 'text',
+                inputPlaceholder: 'e.g. room123',
+                showCancelButton: true,
+                confirmButtonText: 'Join',
+                preConfirm: (roomId) => {
+                if (!roomId) {
+                    Swal.showValidationMessage('Room ID is required!');
+                }
+                return roomId;
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                const roomId = result.value.trim();
+                if (roomId) {
+                    window.location.href = `room.html?id=${roomId}`;
+                }
+                }
+            });
+
+            } else if (result.isDenied) {
+            // Create Room
+            // Option 1: Generate random room ID
+            const newRoomId = 'room-' + Math.random().toString(36).substr(2, 6);
+            window.location.href = `room.html?id=${newRoomId}`;
+            }
+        });
+        });
+        </script>
+
+
 
     </body>
 </html>
